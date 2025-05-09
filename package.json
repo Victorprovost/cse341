@@ -1,0 +1,41 @@
+{
+  "name": "cse341",
+  "version": "1.0.0",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "dependencies": {
+    "body-parser": "^2.2.0",
+    "cors": "^2.8.5",
+    "express": "^5.1.0",
+    "express-session": "^1.18.1",
+    "multer": "^1.4.5-lts.2",
+    "mysql": "^2.18.1"
+  },
+  "profile": {
+    "professionalName": "Jane Doe",
+    "base64Image": "<base64 string>",
+    "nameLink": {
+      "firstName": "Jane",
+      "url": "https://janedoe.com"
+    },
+    "primaryDescription": "A passionate developer with a love for clean code.",
+    "workDescription1": "Currently building full-stack web applications.",
+    "workDescription2": "Previously worked at TechCorp and DevStartups.",
+    "linkTitleText": "Find me online:",
+    "linkedInLink": {
+      "text": "LinkedIn Profile",
+      "link": "https://linkedin.com/in/janedoe"
+    },
+    "githubLink": {
+      "text": "GitHub Profile",
+      "link": "https://github.com/janedoe"
+    }
+  }
+}
