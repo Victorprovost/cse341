@@ -12,16 +12,15 @@ const data = {
   base64Image: base64Image,
   nameLink: {
     firstName: "Victor",
-    lastName: "Provost",
     url: "https://alexrivera.dev"
   },
-  primaryDescription: "A passionate full-stack developer who loves clean code and creative design.",
+  primaryDescription: " A passionate full-stack developer who loves clean code and creative design.",
   workDescription1: "Currently building scalable web apps with Node.js and React.",
   workDescription2: "Previously worked at FinTech Labs and OpenAI as a software engineer.",
   linkTitleText: "Connect with me:",
   linkedInLink: {
     text: "LinkedIn Profile",
-    link: "www.linkedin.com/in/victor-provost2001"
+    link: "https://linkedin.com/in/victor-provost2001"
   },
   githubLink: {
     text: "GitHub Profile",
