@@ -8,10 +8,11 @@ app.use(cors());
 const base64Image = "iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAABf0lEQVR42u2XMU4DQRBGb3EBKCiKgoioCEqKgoioCEqKgtiW4gWoC9iUZxkjTBE9xm8Zu/tOn+ZhNmZuWTvJzzskjxxu7DLKoCvYAJxQ8ZAZiLMzGHQ4TfBUnLAEfQkSPwJZK9hHeAnsl8KvmSA43kDlBbAQuIt3kDP0Bm6LZ/TxgAEaVDSYhswFC0xnQQVoIsTA0Ed9DJ8F1OwA+gUeR4TOeiAzx+EbTwTyAx8FmeRWCSKZLwDiMBZNm4JgXfGBVJJKJB+3A1kT0AkwMTK2nMKkM0eTe5CPAZQETuFqY9G+5yM/gEvzyW19bHLh8AM80SkkZy9RIRfNuJpYuk1yEqxM4W6cwIjAFqW8GME3nBWLgAAAABJRU5ErkJggg==";
 
 const data = {
-  professionalName: "Alex Rivera",
+  professionalName: "Victor Provost",
   base64Image: base64Image,
   nameLink: {
-    firstName: "Alex",
+    firstName: "Victor",
+    lastName: "Provost",
     url: "https://alexrivera.dev"
   },
   primaryDescription: "A passionate full-stack developer who loves clean code and creative design.",
@@ -20,11 +21,11 @@ const data = {
   linkTitleText: "Connect with me:",
   linkedInLink: {
     text: "LinkedIn Profile",
-    link: "https://linkedin.com/in/alexrivera"
+    link: "www.linkedin.com/in/victor-provost2001"
   },
   githubLink: {
     text: "GitHub Profile",
-    link: "https://github.com/alexrivera"
+    link: "https://github.com/Victorprovost"
   }
 };
 
