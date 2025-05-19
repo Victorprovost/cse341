@@ -1,37 +1,27 @@
-require('dotenv').config();
 const { MongoClient } = require('mongodb');
 
-let database;
+const uri = process.env.MONGODB_URI || 'mongodb+srv://provostvictor0:olivetree2060@cluster0.blxj4us.mongodb.net/cse341?retryWrites=true&w=majority';
+let db = null;
 
-const intDb = (callback) => {
-    if (database) {
-        console.log('Database already initialized');
-        return callback(null, database);
-    }
-
-    console.log('MONGODB_URI:', process.env.MONGODB_URI); // Debug
-
-    MongoClient.connect(process.env.MONGODB_URI, {
-        useNewUrlParser: true,
-        useUnifiedTopology: true,
-    })
-        .then((client) => {
-            database = client;
-            callback(null, database);
-        })
-        .catch((error) => {
-            callback(error);
-        });
+const intDb = async (callback) => {
+  try {
+    const client = await MongoClient.connect(uri, {
+      serverSelectionTimeoutMS: 5000, // Timeout after 5 seconds
+    });
+    db = client.db('cse341');
+    console.log('Connected to MongoDB');
+    callback(null);
+  } catch (error) {
+    console.error('MongoDB connection error:', error.message);
+    callback(error);
+  }
 };
 
-const getDatebase = () => {
-    if (!database) {
-        throw new Error('Database not initialized');
-    }
-    return database;
+const getDatabase = () => {
+  if (!db) {
+    throw new Error('Database not initialized');
+  }
+  return db;
 };
 
-module.exports = {
-    intDb,
-    getDatebase
-};
+module.exports = { intDb, getDatabase };
