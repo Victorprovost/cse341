@@ -2,6 +2,7 @@ const mongodb = require('../data/database');
 const ObjectId = require('mongodb').ObjectId;
 
 const getAll = async (req, res) => {
+    //#swagger.tags=['Contacts']
   try {
     const db = mongodb.getDatabase();
     if (!db) {
@@ -19,6 +20,7 @@ const getAll = async (req, res) => {
 };
 
 const getSingle = async (req, res) => {
+    //#swagger.tags=['Contacts']
   try {
     const db = mongodb.getDatabase();
     if (!db) {
@@ -39,7 +41,64 @@ const getSingle = async (req, res) => {
   }
 };
 
+const createcontacts = async (req, res) => {
+    //#swagger.tags=['Contacts']
+    const contacts = {
+        firstName: req.body.firstName,
+        lastName: req.body.lastName,
+        email: req.body.email,
+        favoriteColor: req.body.favoriteColor,
+        birthday: req.body.birthday
+    };
+    const response = await mongodb.getDatabase().db().collection('contacts').insertOne(contacts);
+    if (response.modifiedCount > 0) {
+        res.status(204).send();
+    } else {
+        res.status(500).json(response.error || 'Failed to update contact');
+    }
+};
+
+const updatecontacts = async (req, res) => {
+    //#swagger.tags=['Contacts']
+    const contactsId = new ObjectId(req.params.id);
+    const contacts = {
+        firstName: req.body.firstName,
+        lastName: req.body.lastName,
+        email: req.body.email,
+        favoriteColor: req.body.favoriteColor,
+        birthday: req.body.birthday
+    };
+    const response = await mongodb.getDatabase().db().collection('contacts').replaceOne({ _id: contactsId }, contacts);
+    if (response.modifiedCount > 0) {
+        res.status(204).send();
+    } else {
+        res.status(500).json(response.error || 'Failed to update contact');
+    }
+};
+
+
+const deletecontacts = async (req, res) => {
+    //#swagger.tags=['Contacts']
+    const contactsId = new ObjectId(req.params.id);
+    const contacts = {
+        firstName: req.body.firstName,
+        lastName: req.body.lastName,
+        email: req.body.email,
+        favoriteColor: req.body.favoriteColor,
+        birthday: req.body.birthday
+    };
+    const response = await mongodb.getDatabase().db().collection('contacts').deleteOne({ _id: contactsId });
+    if (response.modifiedCount > 0) {
+        res.status(204).send();
+    } else {
+        res.status(500).json(response.error || 'Failed to update contact');
+    }
+};
+
 module.exports = {
   getAll,
-  getSingle
+  getSingle,
+    createcontacts,
+    updatecontacts,
+    deletecontacts,
 };
